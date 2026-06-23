@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout
+  path="/writing"
+  title="Writing — Steven Balalis"
+  description="Essays on data platforms, engineering leadership, and applied AI — published on Substack."
+>
+  <section class="hero">
+    <div class="container">
+      <p class="section-label">Writing</p>
+      <h1>Essays &amp; notes</h1>
+      <p class="tagline">
+        Data platforms, engineering leadership, and applied AI — practical takes from platform and
+        delivery work.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href={site.substack} rel="noopener">Read on Substack →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section case-study-body">
+    <div class="container">
+      <h2>Topics I write about</h2>
+      <ul>
+        <li>Data integration portfolios — intake, delivery cadence, and partner coordination</li>
+        <li>SLO/SLA governance and observability for platform health</li>
+        <li>Applied AI in engineering workflows — requirements, triage, status reporting</li>
+        <li>Job-search tooling and networking analytics (Network Funnel case study)</li>
+      </ul>
+
+      <h2>Featured elsewhere</h2>
+      <ul>
+        <li><a href={site.substack} rel="noopener">stevenbalalis.substack.com</a> — primary writing home</li>
+        <li><a href={site.careerOps} rel="noopener">career-ops on GitHub</a> — open-source AI job-search pipeline</li>
+        <li><a href={site.github} rel="noopener">GitHub</a> — technical projects</li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

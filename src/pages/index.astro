@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CaseStudyCard from '../components/CaseStudyCard.astro';
+import { site, caseStudies, howIWork, certs } from '../data/site';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: site.name,
+  jobTitle: 'Technical Leader',
+  url: site.url,
+  email: site.email,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Lansdale',
+    addressRegion: 'PA',
+    addressCountry: 'US',
+  },
+  sameAs: [site.linkedin, site.github, site.substack],
+};
+---
+
+<BaseLayout
+  path="/"
+  description="Technical leader — AI systems, data platforms, and engineering leadership. Case studies from healthcare, B2B SaaS, and shipped tooling."
+  jsonLd={jsonLd}
+>
+  <section class="hero">
+    <div class="container">
+      <p class="section-label">Technical leader · Open to remote</p>
+      <h1>{site.name}</h1>
+      <p class="tagline">{site.tagline}</p>
+      <p class="hero-lead">
+        I lead teams that ship AI and data platform work — integrations, reliability, and production
+        systems. I've run 14-person platform teams and 20+ integration programs, and I stay hands-on:
+        building tools, setting technical direction, and using AI in the delivery loop.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#work">View work</a>
+        <a class="btn btn-secondary" href="/resume.pdf">Download resume</a>
+        <a class="btn btn-secondary" href={site.linkedin} rel="noopener noreferrer">LinkedIn</a>
+        <a class="btn btn-secondary" href={`mailto:${site.email}`}>Email</a>
+        <a class="btn btn-secondary" href={site.substack} rel="noopener noreferrer">Substack</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="work">
+    <div class="container">
+      <p class="section-label">Selected work</p>
+      <h2>Case studies</h2>
+      <div class="card-grid">
+        {caseStudies.map((cs) => <CaseStudyCard {...cs} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="section-label">Process</p>
+      <h2>How I work</h2>
+      <div class="steps">
+        {howIWork.map((step) => (
+          <div class="step">
+            <h3>{step.title}</h3>
+            <p>{step.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="section-label">Credentials</p>
+      <h2>AI &amp; technical</h2>
+      <ul class="pill-list">
+        {certs.map((c) => <li>{c}</li>)}
+      </ul>
+      <p style="margin-top: 1.5rem">
+        M.S. Artificial Intelligence &amp; Machine Learning — Eastern University, in progress
+        (resuming 2026). Personal builds include
+        <a href={site.careerOps} rel="noopener">career-ops</a> — an open-source AI job-search
+        pipeline I use daily. Building a new public demo; ask me what I'm working on next.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="section-label">Open to</p>
+      <h2>Looking for</h2>
+      <div class="open-to">
+        <p>
+          Remote engineering leadership where I can run a team and stay in the code — AI systems, data
+          platforms, and production integrations. Targeting <strong>Engineering Manager</strong>,
+          <strong>Technical Lead</strong>, and <strong>Head of Applied AI</strong> at healthtech, B2B
+          SaaS, and AI-native companies. Clear scope, sustainable pace, teams that ship real systems.
+        </p>
+        <p style="margin-bottom: 0">
+          <a href={`mailto:${site.email}`}>Steven.Balalis@gmail.com</a> · {site.location}
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

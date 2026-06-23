@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../data/site';
+---
+
+<BaseLayout
+  path="/work/network-funnel"
+  title="Network Funnel — Job Search Analytics | Steven Balalis"
+  description="Built networking conversion analytics: outreach → reply → conversation → intro → interview. Job-search tooling designed and shipped end-to-end."
+>
+  <header class="case-study-header">
+    <div class="container">
+      <p class="section-label">Case study · Built tool</p>
+      <h1>Network Funnel</h1>
+      <p class="meta">Personal project · Job-search analytics · Networking funnel · Public demo rebuild planned</p>
+      <div class="hero-actions" style="margin-top: 1.5rem">
+        <a class="btn btn-primary" href={site.careerOps} rel="noopener">career-ops on GitHub →</a>
+      </div>
+    </div>
+  </header>
+
+  <article class="case-study-body">
+    <div class="container">
+      <h2>Context</h2>
+      <p>
+        Application trackers tell you what you submitted — not whether your networking is converting.
+        I scoped a complement: fast capture, funnel dashboard, weekly review.
+      </p>
+
+      <h2>Problem</h2>
+      <p>
+        Job search networking is hard to measure. Without a funnel view, it's unclear which outreach
+        channels and message types lead to conversations and intros.
+      </p>
+
+      <h2>My role</h2>
+      <p>
+        End-to-end builder — problem definition, scope, UX, implementation, and deployment. Shipped a
+        working analytics tool alongside my open-source
+        <a href={site.careerOps} rel="noopener">career-ops</a> pipeline.
+      </p>
+
+      <h2>Approach</h2>
+      <ul>
+        <li>Defined funnel stages: outreach → reply → conversation → intro → interview</li>
+        <li>Optimized for fast capture during active search — minimal friction logging</li>
+        <li>Built dashboard for weekly review and channel comparison</li>
+        <li>Integrated thinking with career-ops for a full job-search workflow</li>
+      </ul>
+
+      <h2>Outcome</h2>
+      <p>
+        A shipped artifact that shows technical leadership through building: scoped problem, measurable
+        funnel, iterative delivery, and tooling I actually use. The live demo is being rebuilt; the
+        case study and <a href={site.careerOps} rel="noopener">career-ops</a> repo are the current
+        proof points.
+      </p>
+
+      <h2>Artifacts</h2>
+      <ul>
+        <li><a href={site.careerOps} rel="noopener">career-ops on GitHub</a> — open-source job-search pipeline</li>
+        <li><a href={site.github} rel="noopener">GitHub</a> — other technical projects</li>
+      </ul>
+
+      <p><a href="/">← Back to portfolio</a></p>
+    </div>
+  </article>
+</BaseLayout>

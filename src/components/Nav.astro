@@ -1,0 +1,33 @@
+---
+import { site } from '../data/site';
+
+interface Props {
+  current?: string;
+}
+
+const { current = '/' } = Astro.props;
+
+const links = [
+  { href: '/#work', label: 'Work', match: '/work' },
+  { href: '/writing', label: 'Writing', match: '/writing' },
+  { href: '/resume.pdf', label: 'Resume', match: '/resume' },
+  { href: `mailto:${site.email}`, label: 'Contact', match: 'mailto' },
+];
+
+function isActive(href: string, match: string) {
+  if (match === 'mailto') return false;
+  if (match === '/work') return current.startsWith('/work') || current === '/#work';
+  return current.startsWith(match);
+}
+---
+
+<a class="logo" href="/">{site.name}</a>
+<nav class="site-nav" aria-label="Main">
+  {
+    links.map(({ href, label, match }) => (
+      <a href={href} aria-current={isActive(href, match) ? 'page' : undefined}>
+        {label}
+      </a>
+    ))
+  }
+</nav>
