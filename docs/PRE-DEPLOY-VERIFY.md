@@ -1,6 +1,6 @@
 # Pre-deploy verification (2026-06-23)
 
-Local build passed. Production deploy pending hPanel migration + `.env`.
+Local build passed. Production deploy pending **Cloudflare API token** in GitHub secrets.
 
 ## Build output
 
@@ -15,13 +15,16 @@ Local build passed. Production deploy pending hPanel migration + `.env`.
 
 ## Live site (current)
 
-Still **Hostinger Website Builder** until:
+Still **Hostinger Website Builder** (`connect.hostinger.com` DNS).
 
-1. hPanel migration (see MIGRATION-STATUS.md)
-2. `.env` with SFTP credentials
-3. `npm run deploy`
+## Unblock deploy
 
-## After deploy, verify
+1. Add `CLOUDFLARE_API_TOKEN` + `CLOUDFLARE_ACCOUNT_ID` to GitHub repo secrets
+2. Re-run GitHub Action or `npm run deploy` locally
+3. Attach custom domain in Cloudflare Pages
+4. DNS cutover — [DNS-CUTOVER.md](DNS-CUTOVER.md)
+
+## After cutover, verify
 
 ```bash
 npm run status
@@ -29,4 +32,4 @@ node scripts/verify-dns.mjs
 curl -sI https://sbwebdev.net/work/transcarent | head -3
 ```
 
-Expect Astro static HTML (not `HostingerWebsiteBuilder` header).
+Expect Cloudflare headers + Astro portfolio content.
