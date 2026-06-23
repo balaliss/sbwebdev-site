@@ -10,8 +10,9 @@ After sbwebdev.net serves the Astro site from Cloudflare Pages.
 ## Cancel
 
 1. hPanel → **Websites** → remove/disconnect **Website Builder** for sbwebdev.net
-2. hPanel → **Hosting** → cancel **Premium Web Hosting** if attached (not needed for Cloudflare Pages)
+2. **Premium Web Hosting** — already `non_renewing` on your account (expires 2027-10-05); no action needed unless you want early cancellation
 3. Do **not** delete the domain itself
+4. **Titan Business** email ($19/yr) — cancel separately if you want to drop unused mail
 
 ## DNS after cutover
 
